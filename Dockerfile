@@ -1,11 +1,10 @@
-FROM python:3.11-slim
+FROM eclipse-temurin:17-jdk
 
 WORKDIR /app
 
-COPY . .
-
-RUN pip install flask
+COPY target/*.jar app.jar
 
 EXPOSE 8080
 
-CMD ["python", "app.py"]
+CMD ["java", "-jar", "app.jar"]
+
